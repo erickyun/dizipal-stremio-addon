@@ -7,7 +7,7 @@ const axios = setupCache(instance);
 async function fetchWithUrl() {
     try {
         if (process.env.URLGETSTATUS === "true") {
-            var response = await axios.get("https://raw.githubusercontent.com/dizipaltv/api/refs/heads/main/dizipal.json");
+            var response = await axios.get("https://raw.githubusercontent.com/erickyun/api/refs/heads/main/dizipal.json");
             if (response.status == 200) {
                 response.data.currentSiteURL = String(response.data.currentSiteURL).replace(".com", "");
                 process.env.PROXY_URL = "https://" + new URL(response.data.currentSiteURL).hostname + process.env.PROXYTEMPLATEURL;
